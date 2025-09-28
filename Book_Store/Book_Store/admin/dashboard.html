@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin - dashboard.html</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .stats {display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
+        .card {flex:1 1 200px;background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+        .card h3{margin:0;font-size:14px;color:#666}
+        .card .value{font-size:22px;font-weight:700;margin-top:6px}
+        .grid {display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:16px}
+        table{width:100%;border-collapse:collapse}
+        th,td{padding:8px;border-bottom:1px solid #eee;text-align:left;font-size:13px}
+        .badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:12px}
+        .low{background:#ffe8e8;color:#b00}
+        .ok{background:#e8fff0;color:#0a6}
+        .actions a{margin-right:8px;color:#06c;text-decoration:none}
+        @media(max-width:800px){ .grid{grid-template-columns:1fr} }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Admin - Nhà Sách</div>
+        <nav class="nav"><a href="../index.html">Về trang chính</a></nav>
+    </header>
+
+    <main class="container">
+        <h2>Admin Dashboard</h2>
+        <p>Thống kê cơ bản và quản lý nhanh</p>
+
+        <section id="overview">
+            <div class="stats" id="statsContainer">
+            </div>
+        </section>
+
+        <div class="grid">
+            <section>
+                <h3>Đơn hàng gần đây</h3>
+                <table id="ordersTable">
+                    <thead>
+                        <tr><th>Order ID</th><th>Khách hàng</th><th>Tổng</th><th>Trạng thái</th><th>Ngày</th></tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+
+            <aside>
+                <h3>Sách sắp hết</h3>
+                <ul id="lowStockList" style="padding-left:18px;margin-top:8px">
+                </ul>
+
+                <h3 style="margin-top:16px">Hành động nhanh</h3>
+                <div class="actions">
+                    <a href="products.html">Quản lý sản phẩm</a>
+                    <a href="orders.html">Xem tất cả đơn hàng</a>
+                    <a href="customers.html">Khách hàng</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer"><p>© 2025 Admin</p></footer>
+
+    <script>
+        const dashboard = {
+            totals: {
+                books: 1240,
+                salesToday: 58,
+                revenueToday: 123450000,
+                customers: 942
+            },
+            recentOrders: [
+                {id: 'ORD-1009', customer: 'Nguyễn Văn A', total: 250000, status: 'Đã giao', date: '2025-09-12'},
+                {id: 'ORD-1008', customer: 'Trần Thị B', total: 120000, status: 'Đang xử lý', date: '2025-09-12'},
+                {id: 'ORD-1007', customer: 'Lê Văn C', total: 340000, status: 'Hủy', date: '2025-09-11'}
+            ],
+            lowStock: [
+                {sku: 'BK-0012', title: 'Lập trình JavaScript', stock: 3},
+                {sku: 'BK-0045', title: 'Thiết kế Web hiện đại', stock: 2}
+            ]
+        };
+
+       
+        function formatVND(n){ return n.toLocaleString('vi-VN') + ' ₫'; }
+
+        const statsContainer = document.getElementById('statsContainer');
+        const statItems = [
+            {label: 'Số đầu sách', value: dashboard.totals.books},
+            {label: 'Đơn hôm nay', value: dashboard.totals.salesToday},
+            {label: 'Doanh thu hôm nay', value: formatVND(dashboard.totals.revenueToday)},
+            {label: 'Khách hàng', value: dashboard.totals.customers}
+        ];
+        statsContainer.innerHTML = statItems.map(s => `
+            <div class="card">
+                <h3>${s.label}</h3>
+                <div class="value">${s.value}</div>
+            </div>
+        `).join('');
+
+        const ordersTbody = document.querySelector('#ordersTable tbody');
+        ordersTbody.innerHTML = dashboard.recentOrders.map(o => `
+            <tr>
+                <td>${o.id}</td>
+                <td>${o.customer}</td>
+                <td>${formatVND(o.total)}</td>
+                <td><span class="badge ${o.status==='Đang xử lý' ? 'low' : o.status==='Hủy' ? 'low' : 'ok'}">${o.status}</span></td>
+                <td>${o.date}</td>
+            </tr>
+        `).join('');
+
+        const lowStockList = document.getElementById('lowStockList');
+        lowStockList.innerHTML = dashboard.lowStock.map(b => `<li>${b.title} — <strong>${b.stock}</strong> cái (SKU: ${b.sku})</li>`).join('');
+    </script>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

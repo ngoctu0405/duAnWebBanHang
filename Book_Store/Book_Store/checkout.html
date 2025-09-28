@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="logo">Nhà Sách Online</div>
+  <nav class="nav">
+    <a href="index.html">Trang chủ</a>
+    <a href="products.html">Sản phẩm</a>
+    <a href="cart.html">Giỏ hàng</a>
+    <a href="register.html">Đăng ký</a>
+    <a href="login.html">Đăng nhập</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h2>Thanh toán</h2>
+  <form id="checkout-form" onsubmit="placeOrder(event)">
+    <label>Họ tên <input name="fullname" required></label>
+    <label>Địa chỉ <input name="address" required></label>
+    <label>Số điện thoại <input name="phone" required></label>
+    <label>Phương thức
+      <select name="payment">
+        <option value="cod">COD</option>
+        <option value="bank">Chuyển khoản</option>
+      </select>
+    </label>
+    <button class="btn" type="submit">Xác nhận</button>
+  </form>
+  <div id="checkout-msg"></div>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Nhà Sách Online</p>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

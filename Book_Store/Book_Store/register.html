@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="logo">Nhà Sách Online</div>
+  <nav class="nav">
+    <a href="index.html">Trang chủ</a>
+    <a href="products.html">Sản phẩm</a>
+    <a href="cart.html">Giỏ hàng</a>
+    <a href="register.html">Đăng ký</a>
+    <a href="login.html">Đăng nhập</a>
+  </nav>
+</header>
+
+<main class="container auth">
+  <h2>Đăng ký</h2>
+  <form id="regForm" onsubmit="registerUser(event)">
+    <label>Họ tên <input name="name" required></label>
+    <label>Email <input name="email" type="email" required></label>
+    <label>Mật khẩu <input name="password" type="password" required></label>
+    <button class="btn" type="submit">Tạo tài khoản</button>
+  </form>
+</main>
+
+<footer class="footer">
+  <p>© 2025 Nhà Sách Online</p>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
