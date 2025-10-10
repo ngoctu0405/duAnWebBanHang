@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nhà Sách Online</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  
+<header class="topbar">
+  <div class="logo">
+    <a href="index.html"><img src="images/Logo.png" alt="Logo"> </a>
+  </div>
+  <div class="search-center">
+    <input id="topSearch" class="search-input" placeholder="Tìm sách, tác giả hoặc ISBN..." />
+  </div>
+  <div class="auth-cart">
+    <div id="authArea"></div>
+  </div>
+</header>
+
+<nav class="navbar" id="mainNav">
+  <ul class="menu" id="mainMenu">
+    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="about.html">Giới thiệu</a></li> 
+     <div class="category-menu">
+  <button class="category-btn">Danh mục sách ▾</button>
+  <ul class="book-filter">
+
+    <!-- Văn học -->
+    <li class="dropdown">
+      <a href="#" data-category="Văn học">Văn học ▸</a>
+      <ul class="dropdown-content">
+        <li><a href="#" data-category="Văn học" data-subcategory="Tiểu thuyết">Tiểu thuyết</a></li>
+        <li><a href="#" data-category="Văn học" data-subcategory="Truyện ngắn">Truyện ngắn</a></li>
+        <li><a href="#" data-category="Văn học" data-subcategory="Thơ">Thơ</a></li>
+      </ul>
+    </li>
+
+    <!-- Kinh tế -->
+    <li class="dropdown">
+      <a href="#" data-category="Kinh tế">Kinh tế ▸</a>
+      <ul class="dropdown-content">
+        <li><a href="#" data-category="Kinh tế" data-subcategory="Quản trị">Quản trị</a></li>
+        <li><a href="#" data-category="Kinh tế" data-subcategory="Tài chính">Tài chính</a></li>
+        <li><a href="#" data-category="Kinh tế" data-subcategory="Marketing">Marketing</a></li>
+      </ul>
+    </li>
+
+    <!-- Thiếu nhi -->
+    <li class="dropdown">
+      <a href="#" data-category="Thiếu nhi">Thiếu nhi ▸</a>
+      <ul class="dropdown-content">
+        <li><a href="#" data-category="Thiếu nhi" data-subcategory="Truyện tranh">Truyện tranh</a></li>
+        <li><a href="#" data-category="Thiếu nhi" data-subcategory="Giáo dục">Giáo dục</a></li>
+      </ul>
+    </li>
+
+    <!-- Giáo khoa -->
+    <li class="dropdown">
+      <a href="#" data-category="Giáo khoa">Giáo khoa ▸</a>
+      <ul class="dropdown-content">
+        <li><a href="#" data-category="Giáo khoa" data-subcategory="Cấp 1">Cấp 1</a></li>
+        <li><a href="#" data-category="Giáo khoa" data-subcategory="Cấp 2">Cấp 2</a></li>
+        <li><a href="#" data-category="Giáo khoa" data-subcategory="Cấp 3">Cấp 3</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+</div>
+
+      
+      <div class="dropdown" id="catDropdown"></div>
+    </li>
+    <li><a href="news.html">Tin tức</a></li>
+  </ul>
+  <div class="cart-float" id="cartFloat"><button id="cartBtnFloat" class="btn"><span class="cart-icon">🛒</span> <span id="cart-count" class="cart-count">0</span></button></div>
+</nav>
+
+
+  </header>
+
+  <main class="container">
+    <section class="banner">
+      <div class="banner-content">
+        <h1>Literary Haven xin chào!</h1>
+        <h2>"The Home, All Tomes"</h2>
+        <p>Hàng ngàn tựa sách hay đang chờ bạn</p>
+
+        <a class="btn" href="#product-list">Mua ngay</a>
+      </div>  
+    </section>
+
+    <div class="products-top">
+
+  <div class="all-books">
+    <a href="#" data-category="all" class="active">Tất cả Sách</a>
+  </div>
+</div>
+
+    <div id="product-list" class="products-grid"></div>
+
+    <div id="pagination" class="pagination"></div>
+  </main>
+  <footer class="footer">© 2025 Nhà Sách Online</footer>
+  <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
